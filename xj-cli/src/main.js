@@ -1,7 +1,9 @@
 //  找到 要解析执行的核心文件
 // 1) 要解析用户的参数
 const program = require('commander');
+const path = require('path');
 const { version } = require('./constants.js');
+
 // create  project name
 
 // command collection
@@ -35,7 +37,9 @@ Reflect.ownKeys(mapActions).forEach((action) => {
       if (action === '*') {
         console.log(mapActions[action].description);
       } else {
-        console.log(action);
+        // console.log(action);
+        // xj-cli create xxx // [node, xj-cli, create, xxx]
+        require(path.resolve(__dirname, action))(process.argv.slice(3));
       }
     });
 });
@@ -48,4 +52,4 @@ program.on('--help', () => {
 });
 
 // 解析用户传递过来的参数
-program.version().parse(process.argv);
+program.version(version).parse(process.argv);

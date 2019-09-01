@@ -6,3 +6,9 @@
 # 4. npx eslint --init
 # 5. npm i commander
 # 6. xj-cli --version
+# 7. zhu-cli organization
+# 8. npm i axios
+
+
+# Reference documents
+# developer.github.com/v3/repos
