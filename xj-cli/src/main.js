@@ -36,10 +36,10 @@ Reflect.ownKeys(mapActions).forEach((action) => {
     .action(() => {
       if (action === '*') {
         console.log(mapActions[action].description);
-      } else {
+      } else { // create config
         // console.log(action);
         // xj-cli create xxx // [node, xj-cli, create, xxx]
-        require(path.resolve(__dirname, action))(process.argv.slice(3));
+        require(path.resolve(__dirname, action))(...process.argv.slice(3));
       }
     });
 });
@@ -47,7 +47,7 @@ Reflect.ownKeys(mapActions).forEach((action) => {
 program.on('--help', () => {
   console.log('\nExamples:');
   Reflect.ownKeys(mapActions).forEach((action) => {
-    mapActions[action].examples.forEach((example) => console.log(example));
+    mapActions[action].examples.forEach((example) => console.log(`  ${example}`));
   });
 });
 
