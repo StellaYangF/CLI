@@ -6,7 +6,7 @@
    * nrm user npm  //发包
    * npm addUser
    * publish
-   * npm unlink
+   * npm unlink      卸包
    * npm install xj-cli -g
 
 # Packages: 
